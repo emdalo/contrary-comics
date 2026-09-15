@@ -1,8 +1,6 @@
 # Contrary Comics
 
-Webshop gebouwd met **React**, **TanStack Start** en **Tailwind CSS**.
-
-Live in Grok is de winkel nog **NOORD** (collectie, wagen, afrekenen). Deze repo is hetzelfde project, onder de naam Contrary Comics.
+Stripwinkel — indie, heruitgaven en exclusieve edities. Gebouwd met **React**, **TanStack Start** en **Tailwind CSS**.
 
 ## Op je pc
 
@@ -28,10 +26,10 @@ npm run dev
 
 ## Stack
 
-- TanStack Start (file-based routes in `src/routes/`)
+- TanStack Start (routes in `src/routes/`)
 - React + Tailwind v4
 - Winkelwagen en bestellingen in `localStorage` (demo, geen echte betaling)
 
 ## GitHub Desktop
 
-Als je geen terminal wilt: GitHub Desktop → **Clone repository** → `emdalo/contrary-comics` → daarna in die map `npm install` en `npm run dev` in een terminal.
+Clone repository → `emdalo/contrary-comics` → daarna `npm install` en `npm run dev`.

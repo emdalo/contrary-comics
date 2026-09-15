@@ -29,7 +29,7 @@ export type Order = {
   total: number;
 };
 
-const KEY = "noord-orders";
+const KEY = "contrary-orders";
 
 function readOrders(): Order[] {
   if (typeof window === "undefined") return [];

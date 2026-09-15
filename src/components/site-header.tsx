@@ -3,10 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { cartCount, useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
+import { LogoMark } from "@/components/logo-mark";
 
 const NAV = [
   { to: "/winkel" as const, label: "Collectie" },
-  { to: "/over" as const, label: "Atelier" },
+  { to: "/over" as const, label: "Over" },
 ];
 
 export function SiteHeader() {
@@ -45,9 +46,10 @@ export function SiteHeader() {
 
         <Link
           to="/"
-          className="absolute left-1/2 -translate-x-1/2 font-display text-2xl font-extrabold tracking-tight text-forest md:text-3xl"
+          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 font-display text-lg font-extrabold tracking-tight text-forest md:text-2xl"
         >
-          NOORD
+          <LogoMark className="size-8 shrink-0 md:size-10" />
+          CONTRARY
         </Link>
 
         <div className="flex items-center">

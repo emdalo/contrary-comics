@@ -114,7 +114,7 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
         </div>
 
         <section className="mt-20">
-          <h2 className="font-display text-3xl font-extrabold">Ook in huis</h2>
+          <h2 className="font-display text-3xl font-extrabold">Ook in de rekken</h2>
           <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-4 md:gap-x-6">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />

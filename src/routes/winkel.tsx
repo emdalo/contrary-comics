@@ -14,7 +14,7 @@ type ShopSearch = {
 export const Route = createFileRoute("/winkel")({
   validateSearch: (search: Record<string, unknown>): ShopSearch => {
     const catRaw = search.cat;
-    const cats: Array<CategoryId | "all"> = ["all", "keramiek", "textiel", "verlichting", "hout"];
+    const cats: Array<CategoryId | "all"> = ["all", "indie", "klassiekers", "exclusief", "graphic"];
     const cat = cats.includes(catRaw as CategoryId) ? (catRaw as CategoryId | "all") : "all";
     const sortRaw = search.sort;
     const sorts: SortId[] = ["featured", "price-asc", "price-desc", "new"];
@@ -45,7 +45,7 @@ function ShopPage() {
         <p className="text-xs font-bold uppercase tracking-widest text-teal">Winkel</p>
         <h1 className="mt-2 font-display text-4xl font-extrabold md:text-5xl">{title}</h1>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">
-          Twaalf objecten. Geen seizoenscollectie, geen restjes. Wat op is, is op.
+          Twaalf titels. Wat op is, is op. Geen herdruk tenzij de maker het zegt.
         </p>
 
         <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -83,7 +83,7 @@ function ShopPage() {
           </label>
         </div>
 
-        <p className="mt-6 text-sm text-muted">{listed.length} objecten</p>
+        <p className="mt-6 text-sm text-muted">{listed.length} titels</p>
         <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 md:gap-x-6">
           {listed.map((p) => (
             <ProductCard key={p.slug} product={p} />

@@ -63,10 +63,10 @@ export function ProductCard({ product }: { product: Product }) {
 
 function label(category: Product["category"]) {
   const map = {
-    keramiek: "Keramiek",
-    textiel: "Textiel",
-    verlichting: "Verlichting",
-    hout: "Hout",
+    indie: "Indie",
+    klassiekers: "Heruitgaven",
+    exclusief: "Exclusief",
+    graphic: "Graphic novel",
   };
   return map[category];
 }

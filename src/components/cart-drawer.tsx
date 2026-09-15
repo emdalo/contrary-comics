@@ -59,7 +59,7 @@ export function CartDrawer() {
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
             <p className="font-display text-2xl font-bold text-forest">Je wagen is leeg</p>
             <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted">
-              De collectie wacht. Keramiek, wol, eiken — objecten om te blijven.
+              De rekken wachten. Indie, heruitgaven, exclusives — flip the page.
             </p>
             <Button className="mt-6" onClick={() => setOpen(false)} asChild>
               <Link to="/winkel">Naar de collectie</Link>

@@ -24,7 +24,7 @@ function WishlistPage() {
         {!hydrated ? null : items.length === 0 ? (
           <div className="mt-10 max-w-md">
             <p className="text-muted">
-              Nog niets bewaard. Tik op het hart bij een object om het hier te houden.
+              Nog niets bewaard. Tik op het hart bij een titel om hem hier te houden.
             </p>
             <Button className="mt-6" asChild>
               <Link to="/winkel">Naar de collectie</Link>

@@ -4,7 +4,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { NotFound } from "@/components/not-found";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "NOORD";
+const APP_NAME = "Contrary Comics";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "NOORD — objecten voor het huis, gemaakt om te blijven. Keramiek, textiel, verlichting en hout vanuit Antwerpen.",
+          "Contrary Comics — flip the page, find the unexpected. Indie, heruitgaven en exclusieve edities vanuit Antwerpen.",
       },
       { name: "theme-color", content: "#1A1A1A" },
     ],

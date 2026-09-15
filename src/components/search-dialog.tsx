@@ -35,7 +35,7 @@ export function SearchDialog() {
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Zoek in de collectie…"
+            placeholder="Zoek een titel…"
             className="border-0 bg-transparent shadow-none focus-visible:shadow-none"
           />
           <button

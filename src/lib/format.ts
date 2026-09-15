@@ -5,7 +5,7 @@ export function formatMoney(amount: number) {
   }).format(amount);
 }
 
-export const FREE_SHIPPING_FROM = 150;
+export const FREE_SHIPPING_FROM = 75;
 export const SHIPPING_COST = 8.5;
 
 export function shippingFor(subtotal: number) {

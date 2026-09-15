@@ -1,14 +1,18 @@
 import { Link } from "@tanstack/react-router";
+import { LogoMark } from "@/components/logo-mark";
 
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-line bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
         <div className="md:col-span-2">
-          <p className="font-display text-3xl font-extrabold text-forest">NOORD</p>
+          <p className="flex items-center gap-2 font-display text-2xl font-extrabold text-forest md:text-3xl">
+            <LogoMark className="size-10" />
+            CONTRARY
+          </p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-            Objecten voor het huis, gemaakt om te blijven. Keramiek uit het atelier,
-            wol en linnen, eiken en licht. Vanuit Antwerpen, naar jouw tafel.
+            Flip the page, find the unexpected. Indie trailblazers, heruitgaven
+            en exclusieve edities. Hand-picked in Antwerpen.
           </p>
         </div>
         <div>
@@ -20,37 +24,37 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link to="/winkel" search={{ cat: "keramiek" }} className="text-teal hover:text-forest">
-                Keramiek
+              <Link to="/winkel" search={{ cat: "indie" }} className="text-teal hover:text-forest">
+                Indie
               </Link>
             </li>
             <li>
-              <Link to="/winkel" search={{ cat: "textiel" }} className="text-teal hover:text-forest">
-                Textiel
+              <Link to="/winkel" search={{ cat: "exclusief" }} className="text-teal hover:text-forest">
+                Exclusief
               </Link>
             </li>
             <li>
               <Link to="/over" className="text-teal hover:text-forest">
-                Atelier
+                Over ons
               </Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-teal">Atelier</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-teal">Shop</p>
           <p className="mt-3 text-sm leading-relaxed text-muted">
             Dambruggestraat 12
             <br />
             2060 Antwerpen
             <br />
-            hello@noord.shop
+            hello@contrary.comics
           </p>
-          <p className="mt-4 text-sm text-muted">Gratis verzending vanaf €150 in de Benelux.</p>
+          <p className="mt-4 text-sm text-muted">Gratis verzending vanaf €75 in de Benelux.</p>
         </div>
       </div>
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-subtle md:flex-row md:items-center md:justify-between md:px-6">
-          <p>© {new Date().getFullYear()} NOORD. Alle prijzen incl. BTW.</p>
+          <p>© {new Date().getFullYear()} Contrary Comics. Alle prijzen incl. BTW.</p>
           <p>Gebouwd met open source: React, TanStack en Tailwind.</p>
         </div>
       </div>

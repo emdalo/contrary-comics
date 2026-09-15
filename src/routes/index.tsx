@@ -8,10 +8,10 @@ import { products, CATEGORIES, categoryCopy } from "@/lib/products";
 export const Route = createFileRoute("/")({ component: Home });
 
 const CATEGORY_IMAGE: Record<string, string> = {
-  keramiek: "/products/vaas-schelde.jpg",
-  textiel: "/products/plaid-heide.jpg",
-  verlichting: "/products/lamp-halo.jpg",
-  hout: "/products/kruk-eik.jpg",
+  indie: "/products/nachtveer.jpg",
+  klassiekers: "/products/spiegelstad.jpg",
+  exclusief: "/products/variant-nul.jpg",
+  graphic: "/products/stille-donder.jpg",
 };
 
 function Home() {
@@ -22,17 +22,17 @@ function Home() {
       <section className="relative min-h-[78vh] overflow-hidden md:min-h-[88vh]">
         <img
           src="/images/hero.jpg"
-          alt="Eettafel in ochtendlicht, met keramiek, linnen en eiken."
+          alt="Contrary Comics: een stripwinkel bij nacht, neon magenta en teal."
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-overlay/80 via-overlay/40 to-overlay/20" />
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-4 pb-16 pt-32 md:min-h-[88vh] md:px-6 md:pb-24">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal">Collectie 2026</p>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal">Flip the page</p>
           <h1 className="mt-3 max-w-xl font-display text-5xl font-extrabold leading-tight text-forest md:text-7xl">
-            Objecten voor het huis
+            Find the unexpected
           </h1>
           <p className="mt-4 max-w-md text-base leading-relaxed text-ink/90 md:text-lg">
-            Keramiek, wol, eiken en licht. Gemaakt in kleine oplagen, om te blijven.
+            Indie, heruitgaven en edities die conventies omkeren. Hand-picked in Antwerpen.
           </p>
           <div className="mt-8">
             <Button size="lg" asChild>
@@ -48,7 +48,7 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-teal">Vier families</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-teal">Vier rekken</p>
             <h2 className="mt-2 font-display text-3xl font-extrabold md:text-4xl">De collectie</h2>
           </div>
         </div>
@@ -81,7 +81,7 @@ function Home() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-teal">Geselecteerd</p>
-            <h2 className="mt-2 font-display text-3xl font-extrabold md:text-4xl">In het atelier nu</h2>
+            <h2 className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Nu in de rekken</h2>
           </div>
           <Link
             to="/winkel"
@@ -101,22 +101,22 @@ function Home() {
       <section className="border-y border-line bg-panel">
         <div className="mx-auto grid max-w-6xl md:grid-cols-2">
           <img
-            src="/images/atelier.jpg"
-            alt="Het atelier: planken met steengoed, eiken en linnen."
+            src="/images/shop.jpg"
+            alt="De toonbank van Contrary Comics in Antwerpen."
             className="h-full min-h-96 w-full object-cover"
           />
           <div className="flex flex-col justify-center px-6 py-12 md:px-16 md:py-20">
-            <p className="text-xs font-bold uppercase tracking-widest text-teal">Het atelier</p>
-            <h2 className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Gemaakt in Antwerpen</h2>
+            <p className="text-xs font-bold uppercase tracking-widest text-teal">De shop</p>
+            <h2 className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Aan de andere kant van het verhaal</h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
-              NOORD is een kleine studio aan de Dambruggestraat. We draaien steengoed,
-              oliën eiken, en kiezen wol en linnen die hun eigen kleur mogen houden.
-              Geen seizoenen, geen restjes — alleen objecten die we zelf in huis zouden zetten.
+              Contrary Comics is de stripwinkel die floreert waar het plot omkeert.
+              Van indie trailblazers tot heruitgevonden klassiekers — elke titel is
+              gekozen om conventies te challengen.
             </p>
             <div className="mt-8">
               <Button variant="outline" asChild>
                 <Link to="/over">
-                  Over NOORD
+                  Over Contrary
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -128,21 +128,21 @@ function Home() {
       <section className="bg-paper">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-16 md:grid-cols-3 md:px-6 md:py-20">
         <div className="lift rounded-md bg-surface p-6">
-          <p className="font-display text-xl font-bold text-teal">Kleine oplagen</p>
+          <p className="font-display text-xl font-bold text-teal">Gecureerd</p>
           <p className="mt-2 text-sm leading-relaxed text-muted">
-            Keramiek wordt gedraaid in reeksen van tien tot twintig. Als een stuk op is, is het op.
+            Elke strip wordt gekozen op originaliteit, diepte, en de contrary-factor.
           </p>
         </div>
         <div className="lift rounded-md bg-surface p-6">
-          <p className="font-display text-xl font-bold text-teal">Verzending Benelux</p>
+          <p className="font-display text-xl font-bold text-teal">Exclusieve edities</p>
           <p className="mt-2 text-sm leading-relaxed text-muted">
-            Inpakken met papier, niet met plastic. Gratis vanaf €150. Levering in 2 tot 5 werkdagen.
+            Limited runs en special covers die je nergens anders vindt.
           </p>
         </div>
         <div className="lift rounded-md bg-surface p-6">
-          <p className="font-display text-xl font-bold text-teal">Open source</p>
+          <p className="font-display text-xl font-bold text-teal">Community</p>
           <p className="mt-2 text-sm leading-relaxed text-muted">
-            Deze winkel is gebouwd met React, TanStack Start en Tailwind — tools die iedereen mag gebruiken.
+            Reader polls, maker-Q&A’s, en een rek voor het onverwachte.
           </p>
         </div>
         </div>

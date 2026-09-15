@@ -71,7 +71,7 @@ export const useCart = create<CartState>()(
       },
     }),
     {
-      name: "noord-cart",
+      name: "contrary-cart",
       partialize: (state) => ({ items: state.items, wishlist: state.wishlist }),
       onRehydrateStorage: () => (state) => {
         state?.setHydrated();
