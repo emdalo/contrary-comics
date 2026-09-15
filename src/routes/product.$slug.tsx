@@ -40,21 +40,21 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
     <SiteShell>
       <main className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-14">
         <nav className="text-sm text-muted">
-          <Link to="/winkel" className="hover:text-ink hover:underline">
+          <Link to="/winkel" className="font-bold text-teal hover:text-forest">
             Collectie
           </Link>
           <span className="px-2">/</span>
           <Link
             to="/winkel"
             search={{ cat: product.category }}
-            className="hover:text-ink hover:underline"
+            className="font-bold text-teal hover:text-forest"
           >
             {category?.label}
           </Link>
         </nav>
 
         <div className="mt-6 grid gap-10 md:grid-cols-2 md:gap-16">
-          <div className="overflow-hidden rounded-xl bg-line">
+          <div className="overflow-hidden rounded-md bg-line">
             <img
               src={product.image}
               alt={product.name}
@@ -62,15 +62,15 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
             />
           </div>
           <div className="md:sticky md:top-24 md:self-start">
-            <p className="text-xs uppercase tracking-widest text-muted">{category?.label}</p>
-            <h1 className="mt-2 font-display text-4xl md:text-5xl">{product.name}</h1>
+            <p className="text-xs font-bold uppercase tracking-widest text-teal">{category?.label}</p>
+            <h1 className="mt-2 font-display text-4xl font-extrabold md:text-5xl">{product.name}</h1>
             <p className="mt-3 text-xl tabular-nums">{formatMoney(product.price)}</p>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted">{product.description}</p>
 
             <ul className="mt-6 space-y-1.5 text-sm text-ink">
               {product.details.map((d) => (
                 <li key={d} className="flex gap-2">
-                  <span className="mt-2 size-1 shrink-0 rounded-full bg-forest" />
+                  <span className="mt-2 size-1 shrink-0 rounded-full bg-teal" />
                   {d}
                 </li>
               ))}
@@ -101,9 +101,9 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
             <button
               type="button"
               onClick={() => toggleWish(product.slug)}
-              className="mt-4 inline-flex h-11 items-center gap-2 text-sm text-muted hover:text-ink"
+              className="mt-4 inline-flex h-11 items-center gap-2 text-sm text-muted hover:text-teal"
             >
-              <Heart className={cn("size-4", wish && "fill-ink text-ink")} />
+              <Heart className={cn("size-4", wish && "fill-forest text-forest")} />
               {wish ? "Op je verlanglijst" : "Bewaar op verlanglijst"}
             </button>
 
@@ -114,7 +114,7 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
         </div>
 
         <section className="mt-20">
-          <h2 className="font-display text-3xl">Ook in huis</h2>
+          <h2 className="font-display text-3xl font-extrabold">Ook in huis</h2>
           <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-4 md:gap-x-6">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />

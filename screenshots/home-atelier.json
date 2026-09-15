@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/over",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "NOORD",
+      "hasCanvas": false,
+      "bodyTextLen": 1554,
+      "bodyTextHash": "dec22654a59b083e97eb23b7a49d8148960649260affc93131502e5176259b02",
+      "bodyTextPrefix": "Collectie Atelier NOORD Het atelier NOORD Objecten die blijven N",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/home-atelier.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "NOORD",
+      "hasCanvas": false,
+      "bodyTextLen": 1536,
+      "bodyTextHash": "ca67e5ce95448d1df44384ef44e2cf29517681b2ecc6f26d77b61367fa8774b3",
+      "bodyTextPrefix": "NOORD Het atelier NOORD Objecten die blijven NOORD begon als een",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/home-atelier-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/home-atelier.json"
+}

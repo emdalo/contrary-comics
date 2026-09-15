@@ -42,8 +42,8 @@ function ShopPage() {
   return (
     <SiteShell>
       <main className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-muted">Winkel</p>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl">{title}</h1>
+        <p className="text-xs font-bold uppercase tracking-widest text-teal">Winkel</p>
+        <h1 className="mt-2 font-display text-4xl font-extrabold md:text-5xl">{title}</h1>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">
           Twaalf objecten. Geen seizoenscollectie, geen restjes. Wat op is, is op.
         </p>
@@ -108,8 +108,8 @@ function FilterChip({
       type="button"
       onClick={onClick}
       className={cn(
-        "h-11 rounded-full px-4 text-sm transition-colors duration-150",
-        active ? "bg-forest text-forest-fg" : "bg-surface text-ink shadow-[var(--shadow-border)]",
+        "h-11 rounded-sm px-4 text-sm font-bold transition-colors duration-150",
+        active ? "bg-forest text-forest-fg" : "bg-surface text-teal",
       )}
     >
       {children}

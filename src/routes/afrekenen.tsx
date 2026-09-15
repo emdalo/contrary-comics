@@ -78,7 +78,7 @@ function CheckoutPage() {
               {error ? <p className="mt-4 text-sm text-danger">{error}</p> : null}
             </div>
 
-            <aside className="rounded-xl bg-surface p-5 shadow-[var(--shadow-border)] md:col-span-2 md:self-start">
+            <aside className="rounded-md bg-surface p-5 shadow-[var(--shadow-border)] md:col-span-2 md:self-start">
               <h2 className="font-display text-2xl">Overzicht</h2>
               <ul className="mt-4 divide-y divide-line">
                 {lines.map((line) => (

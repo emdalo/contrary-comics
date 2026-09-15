@@ -32,7 +32,7 @@ function OrderPage() {
           </>
         ) : (
           <>
-            <p className="text-xs uppercase tracking-widest text-muted">Bevestiging</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-teal">Bevestiging</p>
             <h1 className="mt-2 font-display text-4xl md:text-5xl">Dank je, {firstName(order.customer.name)}</h1>
             <p className="mt-4 text-base leading-relaxed text-muted">
               Bestelling <span className="font-medium text-ink">{order.id}</span> is geplaatst.
@@ -40,8 +40,8 @@ function OrderPage() {
               blijft bewaard in deze browser.
             </p>
 
-            <div className="mt-10 rounded-xl bg-surface p-5 shadow-[var(--shadow-border)]">
-              <p className="text-xs uppercase tracking-widest text-muted">Leveren aan</p>
+            <div className="mt-10 rounded-md bg-surface p-5 shadow-[var(--shadow-border)]">
+              <p className="text-xs font-bold uppercase tracking-widest text-teal">Leveren aan</p>
               <p className="mt-2 text-sm leading-relaxed">
                 {order.customer.name}
                 <br />

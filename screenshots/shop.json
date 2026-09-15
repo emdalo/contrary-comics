@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/winkel",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "NOORD",
+      "hasCanvas": false,
+      "bodyTextLen": 1136,
+      "bodyTextHash": "72af8c7c8adbaf2515fc557057888519bf858ea390f84c592a12526f2729bb6d",
+      "bodyTextPrefix": "Collectie Atelier NOORD WINKEL Collectie Twaalf objecten. Geen s",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/shop.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "NOORD",
+      "hasCanvas": false,
+      "bodyTextLen": 1118,
+      "bodyTextHash": "1126906df30b9ad473971a4d18211e568397b0c6c9f217d97e83282cfaf0ec00",
+      "bodyTextPrefix": "NOORD WINKEL Collectie Twaalf objecten. Geen seizoenscollectie, ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/shop-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/shop.json"
+}

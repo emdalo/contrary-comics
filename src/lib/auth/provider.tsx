@@ -19,7 +19,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         position="bottom-center"
         toastOptions={{
           classNames: {
-            toast: "font-sans bg-ink text-paper border-0",
+            toast: "font-sans bg-surface text-ink border border-line",
           },
         }}
       />

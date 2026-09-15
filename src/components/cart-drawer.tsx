@@ -27,7 +27,7 @@ export function CartDrawer() {
         aria-label="Sluit winkelwagen"
         onClick={() => setOpen(false)}
         className={cn(
-          "absolute inset-0 bg-ink/40 transition-opacity duration-200",
+          "absolute inset-0 bg-overlay/70 transition-opacity duration-200",
           open ? "opacity-100" : "opacity-0",
         )}
       />
@@ -42,14 +42,14 @@ export function CartDrawer() {
       >
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
           <div>
-            <p className="font-display text-xl">Winkelwagen</p>
+            <p className="font-display text-xl font-bold text-forest">Winkelwagen</p>
             <p className="text-sm text-muted">{cartCount(items)} stuks</p>
           </div>
           <button
             type="button"
             aria-label="Sluiten"
             onClick={() => setOpen(false)}
-            className="flex size-11 items-center justify-center rounded-md hover:bg-ink/5"
+            className="flex size-11 items-center justify-center rounded-sm hover:bg-ink/5"
           >
             <X className="size-5" />
           </button>
@@ -57,7 +57,7 @@ export function CartDrawer() {
 
         {lines.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-            <p className="font-display text-2xl">Je wagen is leeg</p>
+            <p className="font-display text-2xl font-bold text-forest">Je wagen is leeg</p>
             <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted">
               De collectie wacht. Keramiek, wol, eiken — objecten om te blijven.
             </p>
@@ -88,7 +88,7 @@ export function CartDrawer() {
                         to="/product/$slug"
                         params={{ slug: line.slug }}
                         onClick={() => setOpen(false)}
-                        className="font-display text-lg leading-snug"
+                        className="font-display text-lg font-bold leading-snug text-teal"
                       >
                         {line.product.name}
                       </Link>
@@ -105,7 +105,7 @@ export function CartDrawer() {
                       />
                       <button
                         type="button"
-                        className="text-sm text-muted underline-offset-4 hover:text-ink hover:underline"
+                        className="text-sm text-muted underline-offset-4 hover:text-forest hover:underline"
                         onClick={() => remove(line.slug)}
                       >
                         Verwijder
@@ -122,7 +122,7 @@ export function CartDrawer() {
                     Nog {formatMoney(remaining)} tot gratis verzending.
                   </p>
                 ) : (
-                  <p className="text-sm text-forest">Verzending is gratis.</p>
+                  <p className="text-sm font-bold text-teal">Verzending is gratis.</p>
                 )}
                 <div className="mt-2 h-1 overflow-hidden rounded-full bg-line">
                   <div

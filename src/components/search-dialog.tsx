@@ -20,14 +20,14 @@ export function SearchDialog() {
       <button
         type="button"
         aria-label="Sluit zoeken"
-        className="absolute inset-0 bg-ink/40"
+        className="absolute inset-0 bg-overlay/70"
         onClick={() => setOpen(false)}
       />
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Zoeken"
-        className="absolute inset-x-4 top-8 mx-auto w-full max-w-xl rounded-xl bg-paper p-4 shadow-[var(--shadow-border-hover)] md:p-5"
+        className="absolute inset-x-4 top-8 mx-auto w-full max-w-xl rounded-md bg-surface p-4 shadow-[var(--shadow-border-hover)] md:p-5"
       >
         <div className="flex items-center gap-2">
           <Search className="size-5 text-muted" />
@@ -42,7 +42,7 @@ export function SearchDialog() {
             type="button"
             aria-label="Sluiten"
             onClick={() => setOpen(false)}
-            className="flex size-11 items-center justify-center rounded-md hover:bg-ink/5"
+            className="flex size-11 items-center justify-center rounded-sm hover:bg-ink/5"
           >
             <X className="size-5" />
           </button>
@@ -57,7 +57,7 @@ export function SearchDialog() {
               to="/product/$slug"
               params={{ slug: p.slug }}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 rounded-md px-2 py-2 hover:bg-ink/5"
+              className="flex items-center gap-3 rounded-sm px-2 py-2 hover:bg-ink/5"
             >
               <img
                 src={p.image}

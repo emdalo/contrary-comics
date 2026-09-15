@@ -19,7 +19,7 @@ function WishlistPage() {
   return (
     <SiteShell>
       <main className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-muted">Bewaard</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-teal">Bewaard</p>
         <h1 className="mt-2 font-display text-4xl md:text-5xl">Verlanglijst</h1>
         {!hydrated ? null : items.length === 0 ? (
           <div className="mt-10 max-w-md">

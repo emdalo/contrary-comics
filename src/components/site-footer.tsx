@@ -5,39 +5,39 @@ export function SiteFooter() {
     <footer className="mt-auto border-t border-line bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
         <div className="md:col-span-2">
-          <p className="font-display text-3xl">NOORD</p>
+          <p className="font-display text-3xl font-extrabold text-forest">NOORD</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             Objecten voor het huis, gemaakt om te blijven. Keramiek uit het atelier,
             wol en linnen, eiken en licht. Vanuit Antwerpen, naar jouw tafel.
           </p>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-widest text-muted">Winkel</p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <p className="text-xs font-bold uppercase tracking-widest text-teal">Winkel</p>
+          <ul className="mt-3 space-y-2 text-sm font-bold">
             <li>
-              <Link to="/winkel" className="hover:underline">
+              <Link to="/winkel" className="text-teal hover:text-forest">
                 Collectie
               </Link>
             </li>
             <li>
-              <Link to="/winkel" search={{ cat: "keramiek" }} className="hover:underline">
+              <Link to="/winkel" search={{ cat: "keramiek" }} className="text-teal hover:text-forest">
                 Keramiek
               </Link>
             </li>
             <li>
-              <Link to="/winkel" search={{ cat: "textiel" }} className="hover:underline">
+              <Link to="/winkel" search={{ cat: "textiel" }} className="text-teal hover:text-forest">
                 Textiel
               </Link>
             </li>
             <li>
-              <Link to="/over" className="hover:underline">
+              <Link to="/over" className="text-teal hover:text-forest">
                 Atelier
               </Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-widest text-muted">Atelier</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-teal">Atelier</p>
           <p className="mt-3 text-sm leading-relaxed text-muted">
             Dambruggestraat 12
             <br />

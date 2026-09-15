@@ -17,7 +17,7 @@ export const Route = createRootRoute({
         content:
           "NOORD — objecten voor het huis, gemaakt om te blijven. Keramiek, textiel, verlichting en hout vanuit Antwerpen.",
       },
-      { name: "theme-color", content: "#F3EFE8" },
+      { name: "theme-color", content: "#1A1A1A" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -25,7 +25,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap",
       },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
