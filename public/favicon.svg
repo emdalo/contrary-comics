@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="NOORD">
-  <rect width="32" height="32" rx="6" fill="#1a1a1a"/>
-  <path fill="#ff00a8" d="M5 4h8v10L19.2 4H27v20h-8V14L12.8 24H5z"/>
-  <rect x="5" y="26" width="22" height="3" rx="1.5" fill="#00e5ff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Contrary Comics">
+  <rect width="32" height="32" rx="7" fill="#1a1a1a"/>
+  <path fill="#ff00a8" d="M6.4 4.6h19.2A5.4 5.4 0 0 1 31 10v9.2a5.4 5.4 0 0 1-5.4 5.4h-8.2L10 30.2 12.2 24.6H6.4A5.4 5.4 0 0 1 1 19.2V10a5.4 5.4 0 0 1 5.4-5.4z"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="#00e5ff" stroke-width="3.2" d="M20.4 9.2a5.8 5.8 0 1 0 0 11.5"/>
+    <path stroke="#f5f5f5" stroke-width="3.2" d="M14.2 9.2a5.8 5.8 0 1 0 0 11.5"/>
+  </g>
 </svg>
