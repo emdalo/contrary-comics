@@ -20,7 +20,7 @@
  * `process.env`, which is why the merge has to happen before Vite starts.
  */
 import { spawn } from "node:child_process";
-import { readFileSync, realpathSync } from "node:fs";
+import { existsSync, readFileSync, realpathSync } from "node:fs";
 import { constants as osConstants } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -63,6 +63,40 @@ export function readAppEnv(root) {
 /** File values under the process environment: an explicit override wins. */
 export function mergeAppEnv(appEnv, processEnv) {
   return { ...appEnv, ...processEnv };
+}
+
+/**
+ * Put `node_modules/.bin` first on PATH so `vite` resolves after `npm install`
+ * even when this wrapper is not launched through `npm run`.
+ */
+export function withLocalBin(env, root) {
+  const bin = join(root, "node_modules", ".bin");
+  const pathKey =
+    process.platform === "win32"
+      ? Object.keys(env).find((key) => key.toLowerCase() === "path") || "Path"
+      : "PATH";
+  const delimiter = process.platform === "win32" ? ";" : ":";
+  return { ...env, [pathKey]: `${bin}${delimiter}${env[pathKey] || ""}` };
+}
+
+/**
+ * Resolve a bare command like `vite` to something `spawn` can actually exec.
+ *
+ * Absolute paths (tests pass `process.execPath`) stay as-is. `vite` is started
+ * via `node …/vite/bin/vite.js` so Windows does not depend on `.cmd` shims —
+ * `spawn("vite")` without a shell is a guaranteed ENOENT there.
+ */
+export function resolveCommand(command, args, root) {
+  if (command.includes("/") || command.includes("\\")) {
+    return { command, args, shell: false };
+  }
+  if (command === "vite") {
+    const viteJs = join(root, "node_modules", "vite", "bin", "vite.js");
+    if (existsSync(viteJs)) {
+      return { command: process.execPath, args: [viteJs, ...args], shell: false };
+    }
+  }
+  return { command, args, shell: process.platform === "win32" };
 }
 
 /**
@@ -110,14 +144,23 @@ function main(argv) {
     console.error("usage: node scripts/with-app-env.mjs <command> [args…]");
     process.exit(2);
   }
-  const env = mergeAppEnv(readAppEnv(projectRoot()), process.env);
-  const child = spawn(command, args, { stdio: "inherit", env });
+  const root = projectRoot();
+  const env = withLocalBin(mergeAppEnv(readAppEnv(root), process.env), root);
+  const resolved = resolveCommand(command, args, root);
+  const child = spawn(resolved.command, resolved.args, {
+    stdio: "inherit",
+    env,
+    shell: resolved.shell,
+  });
   // The dev server is long-running and is stopped by signalling this wrapper.
   for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
     process.on(signal, () => child.kill(signal));
   }
   child.on("error", (err) => {
     console.error(`[with-app-env] failed to run ${command}:`, err?.message || err);
+    if (err && err.code === "ENOENT") {
+      console.error("[with-app-env] Run `npm install` in the project folder, then `npm run dev`.");
+    }
     process.exit(127);
   });
   child.on("exit", (code, signal) => {

@@ -11,6 +11,8 @@ import {
   parseAppEnv,
   projectRoot,
   readAppEnv,
+  resolveCommand,
+  withLocalBin,
 } from "./with-app-env.mjs";
 
 const execFileAsync = promisify(execFile);
@@ -125,4 +127,24 @@ test("the CLI still runs when invoked through a symlinked path", async () => {
     PRINT_FLAG,
   ]);
   assert.equal(stdout, "false");
+});
+
+test("withLocalBin prepends node_modules/.bin on PATH", () => {
+  const next = withLocalBin({ PATH: "/usr/bin" }, "/tmp/app");
+  assert.equal(next.PATH, join("/tmp/app", "node_modules", ".bin") + ":/usr/bin");
+});
+
+test("resolveCommand launches vite through node so Windows needs no .cmd shim", () => {
+  const root = projectRoot();
+  const resolved = resolveCommand("vite", ["dev", "--host", "0.0.0.0"], root);
+  assert.equal(resolved.command, process.execPath);
+  assert.equal(resolved.args[0].endsWith(join("vite", "bin", "vite.js")), true);
+  assert.deepEqual(resolved.args.slice(1), ["dev", "--host", "0.0.0.0"]);
+  assert.equal(resolved.shell, false);
+});
+
+test("resolveCommand leaves an absolute node path untouched", () => {
+  const resolved = resolveCommand(process.execPath, ["-e", "0"], projectRoot());
+  assert.equal(resolved.command, process.execPath);
+  assert.deepEqual(resolved.args, ["-e", "0"]);
 });
