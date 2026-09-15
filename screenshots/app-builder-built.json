@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "NOORD",
+      "hasCanvas": false,
+      "bodyTextLen": 1826,
+      "bodyTextHash": "9780c1c797fc742e80165c523fd47ee146c462cd6a68088dfc0bc71730a76abc",
+      "bodyTextPrefix": "Collectie Atelier NOORD COLLECTIE 2026 Objecten voor het huis Ke",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "NOORD",
+      "hasCanvas": false,
+      "bodyTextLen": 1557,
+      "bodyTextHash": "62a14f3931686ad11df228d846c2f04017036b022afcf3ebeb5e74b3abe3d3ff",
+      "bodyTextPrefix": "NOORD COLLECTIE 2026 Objecten voor het huis Keramiek, wol, eiken",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
