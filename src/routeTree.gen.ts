@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AfrekenenRouteImport } from './routes/afrekenen'
 import { Route as OverRouteImport } from './routes/over'
+import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as VerlanglijstRouteImport } from './routes/verlanglijst'
 import { Route as WinkelRouteImport } from './routes/winkel'
 import { Route as BestellingIdRouteImport } from './routes/bestelling.$id'
@@ -30,6 +31,11 @@ const AfrekenenRoute = AfrekenenRouteImport.update({
 const OverRoute = OverRouteImport.update({
   id: '/over',
   path: '/over',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VerlanglijstRoute = VerlanglijstRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/afrekenen': typeof AfrekenenRoute
   '/over': typeof OverRoute
+  '/payment': typeof PaymentRoute
   '/verlanglijst': typeof VerlanglijstRoute
   '/winkel': typeof WinkelRoute
   '/bestelling/$id': typeof BestellingIdRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/afrekenen': typeof AfrekenenRoute
   '/over': typeof OverRoute
+  '/payment': typeof PaymentRoute
   '/verlanglijst': typeof VerlanglijstRoute
   '/winkel': typeof WinkelRoute
   '/bestelling/$id': typeof BestellingIdRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/afrekenen': typeof AfrekenenRoute
   '/over': typeof OverRoute
+  '/payment': typeof PaymentRoute
   '/verlanglijst': typeof VerlanglijstRoute
   '/winkel': typeof WinkelRoute
   '/bestelling/$id': typeof BestellingIdRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/afrekenen'
     | '/over'
+    | '/payment'
     | '/verlanglijst'
     | '/winkel'
     | '/bestelling/$id'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/afrekenen'
     | '/over'
+    | '/payment'
     | '/verlanglijst'
     | '/winkel'
     | '/bestelling/$id'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/afrekenen'
     | '/over'
+    | '/payment'
     | '/verlanglijst'
     | '/winkel'
     | '/bestelling/$id'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AfrekenenRoute: typeof AfrekenenRoute
   OverRoute: typeof OverRoute
+  PaymentRoute: typeof PaymentRoute
   VerlanglijstRoute: typeof VerlanglijstRoute
   WinkelRoute: typeof WinkelRoute
   BestellingIdRoute: typeof BestellingIdRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/over'
       fullPath: '/over'
       preLoaderRoute: typeof OverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/verlanglijst': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AfrekenenRoute: AfrekenenRoute,
   OverRoute: OverRoute,
+  PaymentRoute: PaymentRoute,
   VerlanglijstRoute: VerlanglijstRoute,
   WinkelRoute: WinkelRoute,
   BestellingIdRoute: BestellingIdRoute,

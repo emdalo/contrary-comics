@@ -1,8 +1,8 @@
 export const CATEGORIES = [
-  { id: "indie", label: "Indie" },
-  { id: "klassiekers", label: "Heruitgaven" },
-  { id: "exclusief", label: "Exclusief" },
-  { id: "graphic", label: "Graphic novels" },
+  { id: "hardcover", label: "Hardcovers" },
+  { id: "tpb", label: "Trade paperback" },
+  { id: "issues", label: "Single Issues" },
+  { id: "graphic", label: "Graphic Novels" },
 ] as const;
 
 export type CategoryId = (typeof CATEGORIES)[number]["id"];
@@ -27,7 +27,7 @@ export const products: Product[] = [
   {
     slug: "nachtveer",
     name: "Nachtveer",
-    category: "indie",
+    category: "tpb",
     price: 16,
     image: "/products/nachtveer.jpg",
     tagline: "Twee stiltes op een boot die nergens aanlegt.",
@@ -43,7 +43,7 @@ export const products: Product[] = [
   {
     slug: "omgekeerde-pool",
     name: "Omgekeerde pool",
-    category: "indie",
+    category: "tpb",
     price: 18,
     image: "/products/omgekeerde-pool.jpg",
     tagline: "Zwaartekracht is een mening.",
@@ -58,7 +58,7 @@ export const products: Product[] = [
   {
     slug: "laatste-kader",
     name: "Het laatste kader",
-    category: "indie",
+    category: "issues",
     price: 14,
     image: "/products/laatste-kader.jpg",
     tagline: "De strip stapt uit de pagina.",
@@ -72,7 +72,7 @@ export const products: Product[] = [
   {
     slug: "spiegelstad",
     name: "Spiegelstad",
-    category: "klassiekers",
+    category: "hardcover",
     price: 22,
     image: "/products/spiegelstad.jpg",
     tagline: "De klassieker, maar de stad kijkt terug.",
@@ -87,7 +87,7 @@ export const products: Product[] = [
   {
     slug: "gouden-detective",
     name: "De gouden detective",
-    category: "klassiekers",
+    category: "tpb",
     price: 19,
     image: "/products/gouden-detective.jpg",
     tagline: "Noir, maar het alibi is het licht.",
@@ -100,8 +100,8 @@ export const products: Product[] = [
   },
   {
     slug: "kapitein-contrary",
-    name: "Kapitein Contrary",
-    category: "klassiekers",
+    name: "Captain Contrary",
+    category: "tpb",
     price: 24,
     image: "/products/kapitein-contrary.jpg",
     tagline: "De held die alles omgekeerd doet.",
@@ -116,7 +116,7 @@ export const products: Product[] = [
   {
     slug: "variant-nul",
     name: "Variant Nul",
-    category: "exclusief",
+    category: "issues",
     price: 45,
     image: "/products/variant-nul.jpg",
     tagline: "Foil-editie. 200 stuks. Nummer in de kaft.",
@@ -132,7 +132,7 @@ export const products: Product[] = [
   {
     slug: "inktoproer",
     name: "Inktoproer #1",
-    category: "exclusief",
+    category: "issues",
     price: 38,
     image: "/products/inktoproer.jpg",
     tagline: "Eerste druk, eerste rel.",
@@ -146,7 +146,7 @@ export const products: Product[] = [
   {
     slug: "zachte-kaft",
     name: "Zachte kaft",
-    category: "exclusief",
+    category: "hardcover",
     price: 62,
     image: "/products/zachte-kaft.jpg",
     tagline: "Deluxe. Uitverkocht in de eerste week.",
@@ -203,21 +203,21 @@ export const products: Product[] = [
 ];
 
 export const categoryCopy: Record<CategoryId, { title: string; line: string }> = {
-  indie: {
-    title: "Indie",
-    line: "Trailblazers. Klein, vreemd, met de hand gezet.",
+  hardcover: {
+    title: "Hardcovers",
+    line: "Boards, sewn binding, meant to last.",
   },
-  klassiekers: {
-    title: "Heruitgaven",
-    line: "Bekende vormen, omgekeerd verteld.",
+  tpb: {
+    title: "Trade paperback",
+    line: "Collected editions. Soft cover, full story.",
   },
-  exclusief: {
-    title: "Exclusief",
-    line: "Oplagen die je nergens anders vindt.",
+  issues: {
+    title: "Single Issues",
+    line: "Floppies, first prints, numbered variants.",
   },
   graphic: {
-    title: "Graphic novels",
-    line: "Langere adem. Dikker papier. Blijft liggen.",
+    title: "Graphic Novels",
+    line: "Longer breath. Thicker paper. Stays with you.",
   },
 };
 

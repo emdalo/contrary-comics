@@ -3,11 +3,10 @@ import { Link } from "@tanstack/react-router";
 import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { cartCount, useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
-import { LogoMark } from "@/components/logo-mark";
 
 const NAV = [
-  { to: "/winkel" as const, label: "Collectie" },
-  { to: "/over" as const, label: "Over" },
+  { to: "/winkel" as const, label: "Collection" },
+  { to: "/over" as const, label: "About" },
 ];
 
 export function SiteHeader() {
@@ -26,7 +25,7 @@ export function SiteHeader() {
         <button
           type="button"
           className="flex size-11 items-center justify-center rounded-sm md:hidden"
-          aria-label={menu ? "Menu sluiten" : "Menu openen"}
+          aria-label={menu ? "Close menu" : "Open menu"}
           onClick={() => setMenu((v) => !v)}
         >
           {menu ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -46,16 +45,15 @@ export function SiteHeader() {
 
         <Link
           to="/"
-          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 font-display text-lg font-extrabold tracking-tight text-forest md:text-2xl"
+          className="absolute left-1/2 max-w-[48%] -translate-x-1/2 truncate text-center font-display text-[15px] font-extrabold tracking-tight text-forest sm:max-w-none sm:text-lg md:text-2xl"
         >
-          <LogoMark className="size-8 shrink-0 md:size-10" />
-          CONTRARY
+          Contrary Comics
         </Link>
 
         <div className="flex items-center">
           <button
             type="button"
-            aria-label="Zoeken"
+            aria-label="Search"
             onClick={() => setSearchOpen(true)}
             className="flex size-11 items-center justify-center rounded-sm hover:bg-ink/5"
           >
@@ -63,7 +61,7 @@ export function SiteHeader() {
           </button>
           <Link
             to="/verlanglijst"
-            aria-label="Verlanglijst"
+            aria-label="Wishlist"
             className="relative flex size-11 items-center justify-center rounded-sm hover:bg-ink/5"
           >
             <Heart className="size-5" />
@@ -75,7 +73,7 @@ export function SiteHeader() {
           </Link>
           <button
             type="button"
-            aria-label="Winkelwagen"
+            aria-label="Cart"
             onClick={() => setDrawerOpen(true)}
             className="relative flex size-11 items-center justify-center rounded-sm hover:bg-ink/5"
           >

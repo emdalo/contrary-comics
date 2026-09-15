@@ -22,26 +22,24 @@ function OrderPage() {
       <main className="mx-auto max-w-2xl px-4 py-16 md:py-24">
         {order === undefined ? null : order === null ? (
           <>
-            <h1 className="font-display text-4xl">Bestelling niet gevonden</h1>
-            <p className="mt-3 text-muted">
-              Deze demo bewaart bestellingen alleen in deze browser.
-            </p>
+            <h1 className="font-display text-4xl">Order not found</h1>
+            <p className="mt-3 text-muted">This demo keeps orders only in this browser.</p>
             <Button className="mt-8" asChild>
-              <Link to="/winkel">Naar de collectie</Link>
+              <Link to="/winkel">Discover the collection</Link>
             </Button>
           </>
         ) : (
           <>
-            <p className="text-xs font-bold uppercase tracking-widest text-teal">Bevestiging</p>
-            <h1 className="mt-2 font-display text-4xl md:text-5xl">Dank je, {firstName(order.customer.name)}</h1>
+            <p className="text-xs font-bold uppercase tracking-widest text-teal">Confirmation</p>
+            <h1 className="mt-2 font-display text-4xl md:text-5xl">Thank you, {firstName(order.customer.name)}</h1>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              Bestelling <span className="font-medium text-ink">{order.id}</span> is geplaatst.
-              Dit is een demo — er wordt niets verzonden of afgerekend. De samenvatting
-              blijft bewaard in deze browser.
+              Order <span className="font-medium text-ink">{order.id}</span> is placed.
+              This is a demo — nothing is shipped or charged. The summary stays in this
+              browser.
             </p>
 
             <div className="mt-10 rounded-md bg-surface p-5 shadow-[var(--shadow-border)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-teal">Leveren aan</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-teal">Ship to</p>
               <p className="mt-2 text-sm leading-relaxed">
                 {order.customer.name}
                 <br />
@@ -66,13 +64,13 @@ function OrderPage() {
                 ))}
               </ul>
               <div className="flex justify-between pt-3 text-base font-medium">
-                <span>Totaal</span>
+                <span>Total</span>
                 <span className="tabular-nums">{formatMoney(order.total)}</span>
               </div>
             </div>
 
             <Button className="mt-10" asChild>
-              <Link to="/winkel">Verder winkelen</Link>
+              <Link to="/winkel">Keep shopping</Link>
             </Button>
           </>
         )}

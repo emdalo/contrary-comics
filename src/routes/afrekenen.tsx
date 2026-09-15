@@ -31,7 +31,7 @@ function CheckoutPage() {
     const city = String(data.get("city") ?? "").trim();
     const note = String(data.get("note") ?? "").trim();
     if (!name || !email || !street || !postal || !city) {
-      setError("Vul de velden met een sterretje in.");
+      setError("Please fill in the fields marked with *.");
       return;
     }
     setBusy(true);
@@ -43,35 +43,35 @@ function CheckoutPage() {
   return (
     <SiteShell>
       <main className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-        <h1 className="font-display text-4xl md:text-5xl">Afrekenen</h1>
+        <h1 className="font-display text-4xl md:text-5xl">Checkout</h1>
         {lines.length === 0 ? (
           <div className="mt-10 max-w-md">
-            <p className="text-muted">Je wagen is leeg. Kies eerst iets uit de collectie.</p>
+            <p className="text-muted">Your cart is empty. Pick something from the collection first.</p>
             <Button className="mt-6" asChild>
-              <Link to="/winkel">Naar de collectie</Link>
+              <Link to="/winkel">Discover the collection</Link>
             </Button>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="mt-10 grid gap-12 md:grid-cols-5">
             <div className="md:col-span-3">
-              <h2 className="font-display text-2xl">Levering</h2>
+              <h2 className="font-display text-2xl">Delivery</h2>
               <p className="mt-1 text-sm text-muted">
-                Dit is een demo-winkel. Er wordt niets echt verzonden of afgerekend.
+                This is a demo shop. Nothing is really shipped or charged.
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <Field label="Naam *" name="name" autoComplete="name" className="sm:col-span-2" />
-                <Field label="E-mail *" name="email" type="email" autoComplete="email" />
-                <Field label="Telefoon" name="phone" type="tel" autoComplete="tel" />
+                <Field label="Name *" name="name" autoComplete="name" className="sm:col-span-2" />
+                <Field label="Email *" name="email" type="email" autoComplete="email" />
+                <Field label="Phone" name="phone" type="tel" autoComplete="tel" />
                 <Field
-                  label="Straat en nummer *"
+                  label="Street and number *"
                   name="street"
                   autoComplete="street-address"
                   className="sm:col-span-2"
                 />
                 <Field label="Postcode *" name="postal" autoComplete="postal-code" />
-                <Field label="Gemeente *" name="city" autoComplete="address-level2" />
+                <Field label="City *" name="city" autoComplete="address-level2" />
                 <div className="sm:col-span-2">
-                  <Label htmlFor="note">Opmerking</Label>
+                  <Label htmlFor="note">Note</Label>
                   <Textarea id="note" name="note" className="mt-1.5" rows={3} />
                 </div>
               </div>
@@ -79,7 +79,7 @@ function CheckoutPage() {
             </div>
 
             <aside className="rounded-md bg-surface p-5 shadow-[var(--shadow-border)] md:col-span-2 md:self-start">
-              <h2 className="font-display text-2xl">Overzicht</h2>
+              <h2 className="font-display text-2xl">Summary</h2>
               <ul className="mt-4 divide-y divide-line">
                 {lines.map((line) => (
                   <li key={line.slug} className="flex items-center gap-3 py-3">
@@ -98,23 +98,23 @@ function CheckoutPage() {
               </ul>
               <dl className="mt-4 space-y-1.5 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-muted">Subtotaal</dt>
+                  <dt className="text-muted">Subtotal</dt>
                   <dd className="tabular-nums">{formatMoney(subtotal)}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-muted">Verzending</dt>
+                  <dt className="text-muted">Shipping</dt>
                   <dd className="tabular-nums">
-                    {shipping === 0 ? "Gratis" : formatMoney(shipping)}
+                    {shipping === 0 ? "Free" : formatMoney(shipping)}
                   </dd>
                 </div>
                 <div className="flex justify-between pt-2 text-base font-medium">
-                  <dt>Totaal</dt>
+                  <dt>Total</dt>
                   <dd className="tabular-nums">{formatMoney(total)}</dd>
                 </div>
               </dl>
-              <p className="mt-2 text-xs text-subtle">Inclusief BTW 21%. Betaling bij levering — demo.</p>
+              <p className="mt-2 text-xs text-subtle">Includes 21% VAT. Payment on delivery — demo.</p>
               <Button type="submit" size="lg" className="mt-5 w-full" disabled={busy}>
-                Bestelling plaatsen
+                Place order
               </Button>
             </aside>
           </form>

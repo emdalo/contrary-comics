@@ -23,7 +23,7 @@ export function QtyStepper({
     >
       <button
         type="button"
-        aria-label="Minder"
+        aria-label="Decrease"
         className="flex size-11 items-center justify-center text-ink disabled:text-subtle"
         disabled={value <= min}
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -33,7 +33,7 @@ export function QtyStepper({
       <span className="min-w-8 text-center text-sm tabular-nums">{value}</span>
       <button
         type="button"
-        aria-label="Meer"
+        aria-label="Increase"
         className="flex size-11 items-center justify-center text-ink disabled:text-subtle"
         disabled={value >= max}
         onClick={() => onChange(Math.min(max, value + 1))}

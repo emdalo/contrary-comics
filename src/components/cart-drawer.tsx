@@ -24,7 +24,7 @@ export function CartDrawer() {
     >
       <button
         type="button"
-        aria-label="Sluit winkelwagen"
+        aria-label="Close cart"
         onClick={() => setOpen(false)}
         className={cn(
           "absolute inset-0 bg-overlay/70 transition-opacity duration-200",
@@ -34,7 +34,7 @@ export function CartDrawer() {
       <aside
         role="dialog"
         aria-modal="true"
-        aria-label="Winkelwagen"
+        aria-label="Cart"
         className={cn(
           "absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-paper shadow-[var(--shadow-border-hover)] transition-transform duration-300 ease-out",
           open ? "translate-x-0" : "translate-x-full",
@@ -42,12 +42,12 @@ export function CartDrawer() {
       >
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
           <div>
-            <p className="font-display text-xl font-bold text-forest">Winkelwagen</p>
-            <p className="text-sm text-muted">{cartCount(items)} stuks</p>
+            <p className="font-display text-xl font-bold text-forest">Cart</p>
+            <p className="text-sm text-muted">{cartCount(items)} items</p>
           </div>
           <button
             type="button"
-            aria-label="Sluiten"
+            aria-label="Close"
             onClick={() => setOpen(false)}
             className="flex size-11 items-center justify-center rounded-sm hover:bg-ink/5"
           >
@@ -57,12 +57,12 @@ export function CartDrawer() {
 
         {lines.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-            <p className="font-display text-2xl font-bold text-forest">Je wagen is leeg</p>
+            <p className="font-display text-2xl font-bold text-forest">Your cart is empty</p>
             <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted">
-              De rekken wachten. Indie, heruitgaven, exclusives — flip the page.
+              The racks are waiting. Flip the page, find the unexpected.
             </p>
             <Button className="mt-6" onClick={() => setOpen(false)} asChild>
-              <Link to="/winkel">Naar de collectie</Link>
+              <Link to="/winkel">Discover the collection</Link>
             </Button>
           </div>
         ) : (
@@ -108,7 +108,7 @@ export function CartDrawer() {
                         className="text-sm text-muted underline-offset-4 hover:text-forest hover:underline"
                         onClick={() => remove(line.slug)}
                       >
-                        Verwijder
+                        Remove
                       </button>
                     </div>
                   </div>
@@ -119,10 +119,10 @@ export function CartDrawer() {
               <div className="mb-4">
                 {remaining > 0 ? (
                   <p className="text-sm text-muted">
-                    Nog {formatMoney(remaining)} tot gratis verzending.
+                    {formatMoney(remaining)} away from free shipping.
                   </p>
                 ) : (
-                  <p className="text-sm font-bold text-teal">Verzending is gratis.</p>
+                  <p className="text-sm font-bold text-teal">Shipping is free.</p>
                 )}
                 <div className="mt-2 h-1 overflow-hidden rounded-full bg-line">
                   <div
@@ -135,24 +135,24 @@ export function CartDrawer() {
               </div>
               <dl className="space-y-1.5 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-muted">Subtotaal</dt>
+                  <dt className="text-muted">Subtotal</dt>
                   <dd className="tabular-nums">{formatMoney(subtotal)}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-muted">Verzending</dt>
+                  <dt className="text-muted">Shipping</dt>
                   <dd className="tabular-nums">
-                    {shipping === 0 ? "Gratis" : formatMoney(shipping)}
+                    {shipping === 0 ? "Free" : formatMoney(shipping)}
                   </dd>
                 </div>
                 <div className="flex justify-between pt-1 font-medium">
-                  <dt>Totaal</dt>
+                  <dt>Total</dt>
                   <dd className="tabular-nums">{formatMoney(total)}</dd>
                 </div>
               </dl>
-              <p className="mt-2 text-xs text-subtle">Inclusief BTW 21%.</p>
+              <p className="mt-2 text-xs text-subtle">Includes 21% VAT.</p>
               <Button className="mt-4 w-full" size="lg" asChild>
                 <Link to="/afrekenen" onClick={() => setOpen(false)}>
-                  Afrekenen
+                  Checkout
                 </Link>
               </Button>
             </footer>

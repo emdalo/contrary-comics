@@ -41,7 +41,7 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
       <main className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-14">
         <nav className="text-sm text-muted">
           <Link to="/winkel" className="font-bold text-teal hover:text-forest">
-            Collectie
+            The Collection
           </Link>
           <span className="px-2">/</span>
           <Link
@@ -81,7 +81,7 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
             </p>
 
             {soldOut ? (
-              <p className="mt-8 text-sm font-medium">Uitverkocht. Deze oplage is rond.</p>
+              <p className="mt-8 text-sm font-medium">Sold out. This print run is done.</p>
             ) : (
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <QtyStepper value={qty} max={product.stock} onChange={setQty} />
@@ -90,10 +90,10 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
                   className="flex-1"
                   onClick={() => {
                     add(product.slug, qty);
-                    toast.success(`${product.name} zit in je wagen`);
+                    toast.success(`${product.name} is in your cart`);
                   }}
                 >
-                  In winkelwagen
+                  Add to cart
                 </Button>
               </div>
             )}
@@ -104,17 +104,17 @@ function ProductDetail({ product }: { product: NonNullable<ReturnType<typeof get
               className="mt-4 inline-flex h-11 items-center gap-2 text-sm text-muted hover:text-teal"
             >
               <Heart className={cn("size-4", wish && "fill-forest text-forest")} />
-              {wish ? "Op je verlanglijst" : "Bewaar op verlanglijst"}
+              {wish ? "On your wishlist" : "Save to wishlist"}
             </button>
 
             {product.stock > 0 && product.stock <= 3 ? (
-              <p className="mt-4 text-sm text-danger">Nog {product.stock} stuks.</p>
+              <p className="mt-4 text-sm text-danger">{product.stock} left.</p>
             ) : null}
           </div>
         </div>
 
         <section className="mt-20">
-          <h2 className="font-display text-3xl font-extrabold">Ook in de rekken</h2>
+          <h2 className="font-display text-3xl font-extrabold">Also on the rack</h2>
           <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-4 md:gap-x-6">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />

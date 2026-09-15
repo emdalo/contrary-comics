@@ -19,15 +19,15 @@ function WishlistPage() {
   return (
     <SiteShell>
       <main className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-        <p className="text-xs font-bold uppercase tracking-widest text-teal">Bewaard</p>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl">Verlanglijst</h1>
+        <p className="text-xs font-bold uppercase tracking-widest text-teal">Saved</p>
+        <h1 className="mt-2 font-display text-4xl md:text-5xl">Wishlist</h1>
         {!hydrated ? null : items.length === 0 ? (
           <div className="mt-10 max-w-md">
             <p className="text-muted">
-              Nog niets bewaard. Tik op het hart bij een titel om hem hier te houden.
+              Nothing saved yet. Tap the heart on a title to keep it here.
             </p>
             <Button className="mt-6" asChild>
-              <Link to="/winkel">Naar de collectie</Link>
+              <Link to="/winkel">Discover the collection</Link>
             </Button>
           </div>
         ) : (

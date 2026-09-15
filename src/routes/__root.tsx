@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Contrary Comics — flip the page, find the unexpected. Indie, heruitgaven en exclusieve edities vanuit Antwerpen.",
+          "Contrary Comics — flip the page, find the unexpected. Unique collector pieces for enthusiasts who crave for Contrary Curiosities. Hand-picked in Antwerpen, Belgium.",
       },
       { name: "theme-color", content: "#1A1A1A" },
     ],
@@ -34,7 +34,7 @@ export const Route = createRootRoute({
   }),
   notFoundComponent: NotFound,
   component: () => (
-    <html lang="nl" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

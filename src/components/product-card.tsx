@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
-import type { Product } from "@/lib/products";
+import { CATEGORIES, type Product } from "@/lib/products";
 import { formatMoney } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { Badge } from "@/components/ui/badge";
@@ -29,10 +29,10 @@ export function ProductCard({ product }: { product: Product }) {
             )}
           />
           <div className="absolute left-3 top-3 flex gap-1.5">
-            {product.isNew && !soldOut ? <Badge className="bg-teal text-teal-fg">Nieuw</Badge> : null}
-            {soldOut ? <Badge className="bg-paper text-ink">Uitverkocht</Badge> : null}
+            {product.isNew && !soldOut ? <Badge className="bg-teal text-teal-fg">New</Badge> : null}
+            {soldOut ? <Badge className="bg-paper text-ink">Sold out</Badge> : null}
             {!soldOut && product.stock <= 3 ? (
-              <Badge className="bg-forest text-forest-fg">Laatste stuks</Badge>
+              <Badge className="bg-forest text-forest-fg">Last copies</Badge>
             ) : null}
           </div>
         </div>
@@ -48,7 +48,7 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
       <button
         type="button"
-        aria-label={wish ? "Verwijder van verlanglijst" : "Bewaar op verlanglijst"}
+        aria-label={wish ? "Remove from wishlist" : "Save to wishlist"}
         onClick={(e) => {
           e.preventDefault();
           toggleWish(product.slug);
@@ -62,11 +62,5 @@ export function ProductCard({ product }: { product: Product }) {
 }
 
 function label(category: Product["category"]) {
-  const map = {
-    indie: "Indie",
-    klassiekers: "Heruitgaven",
-    exclusief: "Exclusief",
-    graphic: "Graphic novel",
-  };
-  return map[category];
+  return CATEGORIES.find((c) => c.id === category)?.label ?? category;
 }

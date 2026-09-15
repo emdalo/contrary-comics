@@ -14,7 +14,7 @@ type ShopSearch = {
 export const Route = createFileRoute("/winkel")({
   validateSearch: (search: Record<string, unknown>): ShopSearch => {
     const catRaw = search.cat;
-    const cats: Array<CategoryId | "all"> = ["all", "indie", "klassiekers", "exclusief", "graphic"];
+    const cats: Array<CategoryId | "all"> = ["all", "hardcover", "tpb", "issues", "graphic"];
     const cat = cats.includes(catRaw as CategoryId) ? (catRaw as CategoryId | "all") : "all";
     const sortRaw = search.sort;
     const sorts: SortId[] = ["featured", "price-asc", "price-desc", "new"];
@@ -37,24 +37,24 @@ function ShopPage() {
   });
 
   const title =
-    cat === "all" ? "Collectie" : (CATEGORIES.find((c) => c.id === cat)?.label ?? "Collectie");
+    cat === "all" ? "The Collection" : (CATEGORIES.find((c) => c.id === cat)?.label ?? "The Collection");
 
   return (
     <SiteShell>
       <main className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-        <p className="text-xs font-bold uppercase tracking-widest text-teal">Winkel</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-teal">Shop</p>
         <h1 className="mt-2 font-display text-4xl font-extrabold md:text-5xl">{title}</h1>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">
-          Twaalf titels. Wat op is, is op. Geen herdruk tenzij de maker het zegt.
+          Twelve titles. When it’s gone, it’s gone. No reprint unless the maker says so.
         </p>
 
         <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex min-w-0 flex-wrap gap-2">
             <FilterChip
               active={cat === "all"}
               onClick={() => navigate({ search: { cat: "all", sort } })}
             >
-              Alles
+              All
             </FilterChip>
             {CATEGORIES.map((c) => (
               <FilterChip
@@ -67,7 +67,7 @@ function ShopPage() {
             ))}
           </div>
           <label className="flex items-center gap-2 text-sm text-muted">
-            Sorteer
+            Sort
             <select
               value={sort}
               onChange={(e) =>
@@ -75,15 +75,15 @@ function ShopPage() {
               }
               className="h-11 rounded-md border border-line bg-surface px-3 text-sm text-ink"
             >
-              <option value="featured">Aanbevolen</option>
-              <option value="new">Nieuw</option>
-              <option value="price-asc">Prijs, laag–hoog</option>
-              <option value="price-desc">Prijs, hoog–laag</option>
+              <option value="featured">Featured</option>
+              <option value="new">New</option>
+              <option value="price-asc">Price, low–high</option>
+              <option value="price-desc">Price, high–low</option>
             </select>
           </label>
         </div>
 
-        <p className="mt-6 text-sm text-muted">{listed.length} titels</p>
+        <p className="mt-6 text-sm text-muted">{listed.length} titles</p>
         <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 md:gap-x-6">
           {listed.map((p) => (
             <ProductCard key={p.slug} product={p} />
